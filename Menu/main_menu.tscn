@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvsur1vxgmub3"]
+
+[ext_resource type="Texture2D" uid="uid://dvhllyic06ifv" path="res://Assets/Images/main-menu-bg.png" id="1_kaptk"]
+[ext_resource type="Theme" uid="uid://cxmx36b80lglb" path="res://Assets/Themes/default_theme.tres" id="1_s11ao"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("1_s11ao")
+
+[node name="Main-menu-bg" type="Sprite2D" parent="."]
+position = Vector2(120, 80)
+z_index = -1
+texture = ExtResource("1_kaptk")
+metadata/_edit_lock_ = true
