@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://oir1ykvj7mgi" path="res://Art/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="2_6675g"]
 [ext_resource type="Texture2D" uid="uid://cyhtjp3kaqqg1" path="res://Art/Sprout Lands - Sprites - Basic pack/Tilesets/Tilled Dirt.png" id="3_3q1yy"]
 [ext_resource type="Texture2D" uid="uid://xx5pfq55poxc" path="res://Art/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="4_2wtap"]
-[ext_resource type="Texture2D" uid="uid://clmcm210d1hlv" path="res://Art/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden House.png" id="5_s2jlk"]
 [ext_resource type="Texture2D" uid="uid://fsatlhjo0cab" path="res://Art/Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png" id="6_8pfdt"]
+[ext_resource type="Texture2D" uid="uid://1yeo6jq5ncj8" path="res://Assets/Images/tileset.png" id="7_c4sqd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tfq1u"]
 texture = ExtResource("1_ksrk8")
@@ -547,7 +547,7 @@ texture = ExtResource("4_2wtap")
 3:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0bil3"]
-texture = ExtResource("5_s2jlk")
+texture = ExtResource("7_c4sqd")
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0

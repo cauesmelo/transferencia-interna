@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://155qgqlh3340"]
 
-[ext_resource type="Texture2D" uid="uid://dxis8pq24snu7" path="res://Art/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="1_ons5u"]
 [ext_resource type="Script" path="res://Character/player_cat.gd" id="1_y6vyu"]
+[ext_resource type="Texture2D" uid="uid://bmi47tdk2s3xj" path="res://Assets/Images/luana.png" id="2_7s63f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17e4w"]
 size = Vector2(14, 6)
@@ -242,7 +242,7 @@ script = ExtResource("1_y6vyu")
 starting_direction = Vector2(0, -1)
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
-texture = ExtResource("1_ons5u")
+texture = ExtResource("2_7s63f")
 hframes = 4
 vframes = 4
 
