@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://po3guyxtsuik"]
+
+[ext_resource type="Script" path="res://Level/intro.gd" id="1_hmn2p"]
+[ext_resource type="FontFile" uid="uid://bdc7s013dhkiq" path="res://Assets/Fonts/PeaberryMono.ttf" id="1_wa85p"]
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_hmn2p")
+
+[node name="Text" type="RichTextLabel" parent="."]
+offset_left = 64.0
+offset_top = 192.0
+offset_right = 896.0
+offset_bottom = 384.0
+theme_override_fonts/normal_font = ExtResource("1_wa85p")
+theme_override_font_sizes/normal_font_size = 28
+
+[node name="Proceed" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 400.0
+offset_top = 592.0
+offset_right = 952.0
+offset_bottom = 632.0
+theme_override_fonts/normal_font = ExtResource("1_wa85p")
+theme_override_font_sizes/normal_font_size = 26
+text = "Pressione espaço para continuar..."

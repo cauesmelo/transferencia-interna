@@ -22,7 +22,9 @@ size = Vector2(32, 16)
 position = Vector2(75, -10)
 
 [node name="Camera2d" type="Camera2D" parent="."]
-position = Vector2(44, 90)
+position = Vector2(53, 84)
+current = true
+zoom = Vector2(4, 4)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_o6rlt")
@@ -74,7 +76,7 @@ position = Vector2(26, 72)
 texture = ExtResource("8_556df")
 
 [node name="PlayerCat" parent="." instance=ExtResource("1_s6avu")]
-position = Vector2(44, 90)
+position = Vector2(53, 84)
 
 [node name="RemoteTransform2d" type="RemoteTransform2D" parent="PlayerCat"]
 remote_path = NodePath("../../Camera2d")

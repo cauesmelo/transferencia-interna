@@ -15,7 +15,7 @@ theme = ExtResource("1_s11ao")
 script = ExtResource("2_rx8vt")
 
 [node name="Main-menu-bg" type="Sprite2D" parent="."]
-position = Vector2(120, 80)
+position = Vector2(478.5, 319)
+scale = Vector2(3.9875, 3.9875)
 z_index = -1
 texture = ExtResource("1_kaptk")
-metadata/_edit_lock_ = true

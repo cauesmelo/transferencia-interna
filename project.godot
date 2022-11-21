@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="demo"
-run/main_scene="res://Menu/main_menu.tscn"
+run/main_scene="res://Level/intro.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 
 [display]
 
-window/size/viewport_width=240
-window/size/viewport_height=160
+window/size/viewport_width=960
+window/size/viewport_height=640
 window/size/resizable=false
 window/size/window_width_override=960
 window/size/window_height_override=640
