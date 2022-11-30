@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp65qmyidjt0r"]
+
+[ext_resource type="Script" path="res://Object/TextBox.gd" id="1_0hkj0"]
+[ext_resource type="Texture2D" uid="uid://bkgtvem44beq" path="res://Assets/Images/text-bg.png" id="1_gc35a"]
+[ext_resource type="Theme" uid="uid://cxmx36b80lglb" path="res://Assets/Themes/default_theme.tres" id="2_hi72c"]
+
+[node name="TextBox" type="Node2D"]
+script = ExtResource("1_0hkj0")
+
+[node name="box_sprite" type="Sprite2D" parent="."]
+position = Vector2(479, 127.25)
+scale = Vector2(3.99167, 5.39362)
+texture = ExtResource("1_gc35a")
+
+[node name="text_label" type="RichTextLabel" parent="."]
+offset_left = 29.0
+offset_top = 56.0
+offset_right = 935.0
+offset_bottom = 150.0
+theme = ExtResource("2_hi72c")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+scroll_active = false
+
+[node name="space_label" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 263.0
+offset_top = 195.0
+offset_right = 953.0
+offset_bottom = 229.0
+theme = ExtResource("2_hi72c")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Pressione espaço para continuar..."
+scroll_active = false

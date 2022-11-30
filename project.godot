@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="demo"
-run/main_scene="res://Level/intro.tscn"
+run/main_scene="res://Menu/main_menu.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
+
+[autoload]
+
+Globals="*res://Script/Globals.gd"
 
 [display]
 

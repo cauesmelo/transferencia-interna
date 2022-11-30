@@ -1,13 +1,22 @@
-[gd_scene load_steps=12 format=3 uid="uid://bq3vay6gr70dl"]
+[gd_scene load_steps=21 format=3 uid="uid://bq3vay6gr70dl"]
 
+[ext_resource type="Script" path="res://Level/luana_room.gd" id="1_hicym"]
 [ext_resource type="PackedScene" uid="uid://155qgqlh3340" path="res://Character/player_cat.tscn" id="1_s6avu"]
 [ext_resource type="TileSet" uid="uid://d0qlrkxnamm54" path="res://Tileset/game_level.tres" id="2_o6rlt"]
 [ext_resource type="Texture2D" uid="uid://jkvhs8rvuoms" path="res://Assets/Images/bed.png" id="3_4o6be"]
 [ext_resource type="Texture2D" uid="uid://bupm23s3pydhg" path="res://Assets/Images/table.png" id="4_8tls1"]
+[ext_resource type="Script" path="res://Object/portal_room_house.gd" id="4_uquq7"]
 [ext_resource type="Texture2D" uid="uid://28lbxtlttd15" path="res://Assets/Images/computer.png" id="5_vl5ee"]
 [ext_resource type="Texture2D" uid="uid://dbu23yqwukvwt" path="res://Assets/Images/step.png" id="6_kdv2f"]
 [ext_resource type="Texture2D" uid="uid://nogr4npdw1lv" path="res://Assets/Images/handrail.png" id="7_io6p5"]
+[ext_resource type="Shader" path="res://Shader/outline.gdshader" id="8_1kswi"]
 [ext_resource type="Texture2D" uid="uid://drxaof1t67pr6" path="res://Assets/Images/bench.png" id="8_556df"]
+[ext_resource type="Script" path="res://Level/Computer.gd" id="9_3e4cu"]
+[ext_resource type="PackedScene" uid="uid://bp65qmyidjt0r" path="res://Object/TextBox.tscn" id="11_3r6i6"]
+[ext_resource type="PackedScene" uid="uid://cuhbxk8wbocsx" path="res://Object/Helper.tscn" id="14_8iuwg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u48nf"]
+size = Vector2(13, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p2ll6"]
 size = Vector2(16, 21)
@@ -18,13 +27,17 @@ size = Vector2(3, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jklt"]
 size = Vector2(32, 16)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_35vgm"]
+shader = ExtResource("8_1kswi")
+shader_parameter/line_color = Color(0.572549, 0.862745, 0.729412, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxpha"]
+size = Vector2(19, 30)
+
 [node name="house" type="Node2D"]
 position = Vector2(75, -10)
-
-[node name="Camera2d" type="Camera2D" parent="."]
-position = Vector2(53, 84)
-current = true
-zoom = Vector2(4, 4)
+script = ExtResource("1_hicym")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_o6rlt")
@@ -36,6 +49,13 @@ layer_0/tile_data = PackedInt32Array(131072, 4, 1, 196608, 4, 2, 262144, 4, 2, 3
 [node name="Step" type="Sprite2D" parent="."]
 position = Vector2(72, 56)
 texture = ExtResource("6_kdv2f")
+
+[node name="Area2d" type="Area2D" parent="Step"]
+script = ExtResource("4_uquq7")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Step/Area2d"]
+position = Vector2(0.5, -3)
+shape = SubResource("RectangleShape2D_u48nf")
 
 [node name="Bed" type="StaticBody2D" parent="."]
 position = Vector2(24, 95)
@@ -68,8 +88,16 @@ position = Vector2(32, 56)
 texture = ExtResource("4_8tls1")
 
 [node name="Computer" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_35vgm")
 position = Vector2(26, 52)
 texture = ExtResource("5_vl5ee")
+script = ExtResource("9_3e4cu")
+
+[node name="Area2d" type="Area2D" parent="Computer"]
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Computer/Area2d"]
+position = Vector2(-0.5, 9)
+shape = SubResource("RectangleShape2D_gxpha")
 
 [node name="Bench" type="Sprite2D" parent="."]
 position = Vector2(26, 72)
@@ -80,3 +108,21 @@ position = Vector2(53, 84)
 
 [node name="RemoteTransform2d" type="RemoteTransform2D" parent="PlayerCat"]
 remote_path = NodePath("../../Camera2d")
+
+[node name="Camera2d" type="Camera2D" parent="."]
+position = Vector2(53, 84)
+current = true
+zoom = Vector2(4, 4)
+
+[node name="TextBox" parent="Camera2d" instance=ExtResource("11_3r6i6")]
+position = Vector2(-120, 15)
+scale = Vector2(0.25, 0.25)
+
+[node name="Helper" parent="Camera2d" instance=ExtResource("14_8iuwg")]
+position = Vector2(-73, -79)
+scale = Vector2(0.2, 0.2)
+
+[connection signal="body_entered" from="Step/Area2d" to="Step/Area2d" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Step/Area2d" to="Computer" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Computer/Area2d" to="Computer" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Computer/Area2d" to="Computer" method="_on_area_2d_body_exited"]

@@ -25,15 +25,16 @@ func print_text():
 func _process(delta):
 	acc = acc + delta
 	
-	if(acc > 0.8):
+	if(acc > 0.005):
 		print_text()
+		acc = 0
 
-func _input(event):
+func _input(_event):
 	if(Input.get_action_strength("action") == 1 && is_done):
-		print(part)
 		if(part < 2):
 			part = part + 1
 			text_node.text = ""
 			proceed_node.visible = false
+			is_done = false
 		else:
 			get_tree().change_scene_to_file("res://Level/luana_room.tscn")

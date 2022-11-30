@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuhbxk8wbocsx"]
+
+[ext_resource type="Texture2D" uid="uid://bkgtvem44beq" path="res://Assets/Images/text-bg.png" id="1_gc35a"]
+[ext_resource type="Script" path="res://Object/Helper.gd" id="1_r43vo"]
+[ext_resource type="Theme" uid="uid://cxmx36b80lglb" path="res://Assets/Themes/default_theme.tres" id="2_hi72c"]
+
+[node name="HelperBox" type="Node2D"]
+script = ExtResource("1_r43vo")
+metadata/_edit_horizontal_guides_ = [40.0, 88.0]
+
+[node name="box_sprite" type="Sprite2D" parent="."]
+position = Vector2(479, 56)
+scale = Vector2(3.99167, 2.38298)
+texture = ExtResource("1_gc35a")
+
+[node name="text_label" type="RichTextLabel" parent="."]
+offset_left = 200.0
+offset_top = 40.0
+offset_right = 933.0
+offset_bottom = 72.0
+theme = ExtResource("2_hi72c")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+scroll_active = false
+
+[node name="goal_label" type="RichTextLabel" parent="."]
+offset_left = 24.0
+offset_top = 40.0
+offset_right = 212.0
+offset_bottom = 72.0
+theme = ExtResource("2_hi72c")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Objetivo:"

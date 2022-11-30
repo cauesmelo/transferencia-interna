@@ -7,6 +7,8 @@
 
 [node name="Camera2d" type="Camera2D" parent="."]
 position = Vector2(74, 49)
+current = true
+zoom = Vector2(4, 4)
 
 [node name="PlayerCat" parent="." instance=ExtResource("1_8ium6")]
 position = Vector2(74, 49)
