@@ -16,7 +16,7 @@ var labels_game_start = [
 ]
 
 var labels_computer = [
-	"Luana pesquisa o site da Unirio no Google...",
+	"Luana acessa o portal da Unirio...",
 	"E descobre que precisa separar uma cópia da Identidade, comprovante de matrícula e seu histórico escolar.",
 	"Além disso, é necessário cumprir alguns pré-requisitos para poder solicitar a transferência interna, sendo eles...",
 	"1. Possuir CRA igual ou superior a seis nos períodos realizados no curso de origem.",
@@ -26,8 +26,22 @@ var labels_computer = [
 	"Como não há nenhum impedimento. Luana salva a listagem de documentos e um protocolo de requerimento de mudança de curso."
 ]
 
+var labels_closet = [
+	"Luana separa uma cópia da identidade, comprovante de matrícula e histórico escolar",
+	"Agora é necessário preencher o formulário em cima da mesa."
+]
+
+var labels_form = [
+	"Luana preenche o formulário.",
+	"Agora é necessário ir até a coordenação do curso de ciências da natureza."
+]
+
 var labels_computer_empty = [
 	"Não há nada para fazer no computador agora."
+]
+
+var labels_closet_empty = [
+	"Não há nada para fazer no armário agora."
 ]
 
 func _ready():
@@ -46,10 +60,26 @@ func set_goal(goal):
 	show_goal = true
 	
 func use_computer():
+	if(game_stage == 2):
+		return
+	
 	if(game_stage == 0):
 		load_texts(labels_computer)
+		finish_text_cb = func(): set_goal("Buscar documentos no armário")
 		game_stage = 1
 		return
-		
-	if(game_stage == 1):
+	else:
 		load_texts(labels_computer_empty)
+
+func use_closet():
+	if(game_stage == 1):
+		load_texts(labels_closet)
+		finish_text_cb = func(): set_goal("Preencher formulário no mesa")
+		game_stage = 2
+	else:
+		load_texts(labels_closet_empty)
+
+func use_form():
+	load_texts(labels_form)
+	finish_text_cb = func(): set_goal("Ir para Unirio")
+	game_stage = 3

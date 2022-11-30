@@ -5,7 +5,7 @@ extends Sprite2D
 var player_can_active = false
 
 func _on_area_2d_body_entered(body):
-	if(body.name == "PlayerCat"):
+	if(body.name == "PlayerCat" && globals.game_stage != 2):
 		self.material.set_shader_parameter('line_thickness', 1.0)
 		player_can_active = true
 

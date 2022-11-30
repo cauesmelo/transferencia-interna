@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bq3vay6gr70dl"]
+[gd_scene load_steps=30 format=3 uid="uid://bq3vay6gr70dl"]
 
 [ext_resource type="Script" path="res://Level/luana_room.gd" id="1_hicym"]
 [ext_resource type="PackedScene" uid="uid://155qgqlh3340" path="res://Character/player_cat.tscn" id="1_s6avu"]
@@ -11,9 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://nogr4npdw1lv" path="res://Assets/Images/handrail.png" id="7_io6p5"]
 [ext_resource type="Shader" path="res://Shader/outline.gdshader" id="8_1kswi"]
 [ext_resource type="Texture2D" uid="uid://drxaof1t67pr6" path="res://Assets/Images/bench.png" id="8_556df"]
+[ext_resource type="Material" uid="uid://cb6o2vls4ad3h" path="res://Shader/outline.tres" id="8_i2oih"]
 [ext_resource type="Script" path="res://Level/Computer.gd" id="9_3e4cu"]
 [ext_resource type="PackedScene" uid="uid://bp65qmyidjt0r" path="res://Object/TextBox.tscn" id="11_3r6i6"]
 [ext_resource type="PackedScene" uid="uid://cuhbxk8wbocsx" path="res://Object/Helper.tscn" id="14_8iuwg"]
+[ext_resource type="Script" path="res://Level/ClosetSprite.gd" id="15_m8ija"]
+[ext_resource type="Texture2D" uid="uid://0lcc3iwlkm83" path="res://Assets/Images/closet.png" id="15_xirdc"]
+[ext_resource type="Texture2D" uid="uid://c7t5xvmfludfn" path="res://Assets/Images/form.png" id="17_qj836"]
+[ext_resource type="Script" path="res://Object/Form.gd" id="18_fetg0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u48nf"]
 size = Vector2(13, 8)
@@ -27,13 +32,27 @@ size = Vector2(3, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jklt"]
 size = Vector2(32, 16)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_35vgm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxpha"]
+size = Vector2(17, 30)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a36g2"]
 shader = ExtResource("8_1kswi")
 shader_parameter/line_color = Color(0.572549, 0.862745, 0.729412, 1)
 shader_parameter/line_thickness = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxpha"]
-size = Vector2(19, 30)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijwrb"]
+size = Vector2(18, 21)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pkiry"]
+shader = ExtResource("8_1kswi")
+shader_parameter/line_color = Color(0.572549, 0.862745, 0.729412, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xo5vg"]
+size = Vector2(11, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wffm"]
+size = Vector2(22, 34)
 
 [node name="house" type="Node2D"]
 position = Vector2(75, -10)
@@ -44,10 +63,10 @@ tile_set = ExtResource("2_o6rlt")
 format = 2
 layer_0/name = "House"
 layer_0/z_index = -5
-layer_0/tile_data = PackedInt32Array(131072, 4, 1, 196608, 4, 2, 262144, 4, 2, 327680, 4, 2, 393216, 4, 2, 458752, 4, 3, 458753, 65540, 3, 458754, 65540, 3, 458755, 65540, 3, 458756, 65540, 3, 131073, 65540, 1, 393218, 65540, 2, 393219, 65540, 2, 393220, 65540, 2, 327684, 65540, 2, 262148, 65540, 2, 131076, 65540, 1, 131074, 65540, 1, 196610, 65540, 2, 262146, 65540, 2, 327682, 65540, 2, 327683, 65540, 2, 262147, 65540, 2, 196611, 65540, 2, 131075, 65540, 1, 262145, 65540, 2, 458757, 131076, 3, 393221, 131076, 2, 327685, 131076, 2, 262149, 131076, 2, 196613, 131076, 2, 131077, 131076, 1, 196609, 65540, 2, 327681, 65540, 2, 393217, 65540, 2, 196612, 65540, 2)
+layer_0/tile_data = PackedInt32Array(131072, 4, 1, 196608, 4, 2, 262144, 4, 2, 327680, 4, 2, 393216, 4, 2, 458752, 4, 3, 458753, 65540, 3, 458754, 65540, 3, 458755, 65540, 3, 458756, 65540, 3, 131073, 65540, 1, 393218, 65540, 2, 393219, 65540, 2, 393220, 65540, 2, 327684, 65540, 2, 262148, 65540, 2, 131076, 65540, 1, 131074, 65540, 1, 196610, 65540, 2, 262146, 65540, 2, 327682, 65540, 2, 327683, 65540, 2, 262147, 65540, 2, 196611, 65540, 2, 131075, 65540, 1, 262145, 65540, 2, 196609, 65540, 2, 327681, 65540, 2, 393217, 65540, 2, 196612, 65540, 2, 393221, 65540, 2, 327685, 65540, 2, 262149, 65540, 2, 196613, 65540, 2, 458757, 65540, 3, 458758, 131076, 3, 393222, 131076, 2, 327686, 131076, 2, 262150, 131076, 2, 196614, 131076, 2, 131077, 65540, 1, 131078, 131076, 1)
 
 [node name="Step" type="Sprite2D" parent="."]
-position = Vector2(72, 56)
+position = Vector2(88, 56)
 texture = ExtResource("6_kdv2f")
 
 [node name="Area2d" type="Area2D" parent="Step"]
@@ -68,6 +87,7 @@ shape = SubResource("RectangleShape2D_p2ll6")
 texture = ExtResource("3_4o6be")
 
 [node name="Handrail" type="StaticBody2D" parent="."]
+position = Vector2(15, 0)
 
 [node name="HandrailSprite" type="Sprite2D" parent="Handrail"]
 position = Vector2(57, 55)
@@ -88,7 +108,7 @@ position = Vector2(32, 56)
 texture = ExtResource("4_8tls1")
 
 [node name="Computer" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_35vgm")
+material = ExtResource("8_i2oih")
 position = Vector2(26, 52)
 texture = ExtResource("5_vl5ee")
 script = ExtResource("9_3e4cu")
@@ -96,29 +116,62 @@ script = ExtResource("9_3e4cu")
 [node name="Area2d" type="Area2D" parent="Computer"]
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Computer/Area2d"]
-position = Vector2(-0.5, 9)
+position = Vector2(-1.5, 9)
 shape = SubResource("RectangleShape2D_gxpha")
 
 [node name="Bench" type="Sprite2D" parent="."]
 position = Vector2(26, 72)
 texture = ExtResource("8_556df")
 
+[node name="Form" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_a36g2")
+position = Vector2(42, 55)
+texture = ExtResource("17_qj836")
+script = ExtResource("18_fetg0")
+
+[node name="Area2d" type="Area2D" parent="Form"]
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Form/Area2d"]
+position = Vector2(5, 3.5)
+shape = SubResource("RectangleShape2D_ijwrb")
+
 [node name="PlayerCat" parent="." instance=ExtResource("1_s6avu")]
-position = Vector2(53, 84)
+position = Vector2(43, 91)
 
 [node name="RemoteTransform2d" type="RemoteTransform2D" parent="PlayerCat"]
 remote_path = NodePath("../../Camera2d")
 
+[node name="Closet" type="StaticBody2D" parent="."]
+position = Vector2(16, 0)
+
+[node name="ClosetSprite" type="Sprite2D" parent="Closet"]
+material = SubResource("ShaderMaterial_pkiry")
+position = Vector2(73, 95)
+texture = ExtResource("15_xirdc")
+script = ExtResource("15_m8ija")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Closet"]
+position = Vector2(74.5, 95)
+shape = SubResource("RectangleShape2D_xo5vg")
+
+[node name="Area2d" type="Area2D" parent="Closet"]
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Closet/Area2d"]
+position = Vector2(70, 96)
+shape = SubResource("RectangleShape2D_7wffm")
+
 [node name="Camera2d" type="Camera2D" parent="."]
-position = Vector2(53, 84)
+position = Vector2(43, 91)
 current = true
 zoom = Vector2(4, 4)
 
 [node name="TextBox" parent="Camera2d" instance=ExtResource("11_3r6i6")]
+visible = false
 position = Vector2(-120, 15)
 scale = Vector2(0.25, 0.25)
 
 [node name="Helper" parent="Camera2d" instance=ExtResource("14_8iuwg")]
+visible = false
 position = Vector2(-73, -79)
 scale = Vector2(0.2, 0.2)
 
@@ -126,3 +179,7 @@ scale = Vector2(0.2, 0.2)
 [connection signal="body_exited" from="Step/Area2d" to="Computer" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Computer/Area2d" to="Computer" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Computer/Area2d" to="Computer" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Form/Area2d" to="Form" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Form/Area2d" to="Form" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Closet/Area2d" to="Closet/ClosetSprite" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Closet/Area2d" to="Closet/ClosetSprite" method="_on_area_2d_body_exited"]
