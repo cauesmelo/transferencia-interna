@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://po3guyxtsuik"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://Level/intro.gd" id="1_hmn2p"]
+[ext_resource type="Script" path="res://Script/intro.gd" id="1_hmn2p"]
 [ext_resource type="FontFile" uid="uid://bdc7s013dhkiq" path="res://Assets/Fonts/PeaberryMono.ttf" id="1_wa85p"]
 
 [node name="Intro" type="Node2D"]

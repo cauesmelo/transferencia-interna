@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cuhbxk8wbocsx"]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Texture2D" uid="uid://bkgtvem44beq" path="res://Assets/Images/text-bg.png" id="1_gc35a"]
-[ext_resource type="Script" path="res://Object/Helper.gd" id="1_r43vo"]
+[ext_resource type="Script" path="res://Script/helper.gd" id="1_r43vo"]
 [ext_resource type="Theme" uid="uid://cxmx36b80lglb" path="res://Assets/Themes/default_theme.tres" id="2_hi72c"]
 
 [node name="HelperBox" type="Node2D"]

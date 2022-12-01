@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://bdc7s013dhkiq" path="res://Assets/Fonts/PeaberryMono.ttf" id="1_lst2k"]
 
-[sub_resource type="StyleBox" id="StyleBox_531xj"]
+[sub_resource type="StyleBox" id="StyleBox_8qy4l"]
 resource_local_to_scene = false
 resource_name = ""
 content_margin_left = -1.0
@@ -10,7 +10,7 @@ content_margin_top = -1.0
 content_margin_right = -1.0
 content_margin_bottom = -1.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjcw0"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5owo"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
@@ -31,7 +31,7 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvppy"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0sq7"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
@@ -43,7 +43,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfwxw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77lld"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
@@ -55,7 +55,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4e2o8"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0u75j"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
@@ -87,8 +87,8 @@ Button/constants/h_separation = 2
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 7
 Button/fonts/font = ExtResource("1_lst2k")
-Button/styles/disabled = SubResource("StyleBox_531xj")
-Button/styles/focus = SubResource("StyleBoxFlat_tjcw0")
-Button/styles/hover = SubResource("StyleBoxFlat_cvppy")
-Button/styles/normal = SubResource("StyleBoxFlat_cfwxw")
-Button/styles/pressed = SubResource("StyleBoxFlat_4e2o8")
+Button/styles/disabled = SubResource("StyleBox_8qy4l")
+Button/styles/focus = SubResource("StyleBoxFlat_r5owo")
+Button/styles/hover = SubResource("StyleBoxFlat_n0sq7")
+Button/styles/normal = SubResource("StyleBoxFlat_77lld")
+Button/styles/pressed = SubResource("StyleBoxFlat_0u75j")
