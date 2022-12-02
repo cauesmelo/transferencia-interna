@@ -10,9 +10,10 @@ config_version=5
 
 [application]
 
-config/name="demo"
+config/name="TransferenciaInterna"
 run/main_scene="res://Menu/main_menu.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
+config/icon="res://Assets/icon.png"
 
 [autoload]
 
