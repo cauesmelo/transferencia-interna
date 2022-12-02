@@ -5,4 +5,4 @@ extends Area2D
 func _on_portal_cn_body_entered(body):
 	if(body.name == "Luana"):
 		globals.pos = 0
-		get_tree().change_scene_to_file("res://Level/unirio_cn.tscn")
+		SceneTransition.transition_to("res://Level/unirio_cn.tscn")

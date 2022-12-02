@@ -36,4 +36,4 @@ func _input(_event):
 			proceed_node.visible = false
 			is_done = false
 		else:
-			get_tree().change_scene_to_file("res://Level/luana_room.tscn")
+			SceneTransition.transition_to("res://Level/luana_room.tscn")

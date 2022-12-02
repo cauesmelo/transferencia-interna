@@ -11679,6 +11679,7 @@ animations = [{
 position = Vector2(70.1, 11.3816)
 y_sort_enabled = true
 script = ExtResource("1_hont5")
+metadata/_edit_horizontal_guides_ = [-109.984]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_mt0do")

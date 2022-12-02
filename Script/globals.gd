@@ -132,7 +132,7 @@ func use_computer():
 		game_stage = 5
 		finish_text_cb = func(): 
 			set_goal("Verificar resultado do processo seletivo")
-			get_tree().change_scene_to_file("res://Level/time_skip2.tscn")
+			SceneTransition.transition_to("res://Level/time_skip2.tscn")
 			finish_text_cb = func(): pass
 	elif(game_stage == 5):
 		load_texts(labels_computer3)
@@ -156,7 +156,7 @@ func use_prof_bsi():
 		load_texts(labels_bsi)
 		finish_text_cb = func(): 
 			game_stage = 7
-			get_tree().change_scene_to_file("res://Level/time_skip3.tscn")
+			SceneTransition.transition_to("res://Level/time_skip3.tscn")
 			finish_text_cb = func(): pass
 	else:
 		load_texts(labels_bsi_empty)
@@ -167,7 +167,7 @@ func use_prof_cn():
 		finish_text_cb = func(): 
 			set_goal("Realizar inscrição no computador")
 			game_stage = 4
-			get_tree().change_scene_to_file("res://Level/time_skip.tscn")
+			SceneTransition.transition_to("res://Level/time_skip.tscn")
 			finish_text_cb = func(): pass
 	else:
 		load_texts(labels_cn_empty)
