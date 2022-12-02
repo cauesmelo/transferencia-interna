@@ -1,3 +1,105 @@
-[gd_scene format=3 uid="uid://c7g0d0auqq7aw"]
+[gd_scene load_steps=19 format=3 uid="uid://c7g0d0auqq7aw"]
+
+[ext_resource type="Texture2D" uid="uid://da1okksces65x" path="res://Assets/bsi_cord1.png" id="1_yfm0g"]
+[ext_resource type="Texture2D" uid="uid://d3yfwnv4ti5hr" path="res://Assets/bsi_cord2.png" id="2_5tkkd"]
+[ext_resource type="Texture2D" uid="uid://b8kcdd0onvx0n" path="res://Assets/bsi_cord3.png" id="3_1syug"]
+[ext_resource type="Texture2D" uid="uid://crbw8vuavugbb" path="res://Assets/bsi_cord4.png" id="4_mt1di"]
+[ext_resource type="Texture2D" uid="uid://cuieja0dbwgae" path="res://Assets/bsi_cord5.png" id="5_kg331"]
+[ext_resource type="Texture2D" uid="uid://cjties4fgx35p" path="res://Assets/bsi_cord6.png" id="6_2echx"]
+[ext_resource type="Script" path="res://Script/prof_bsi.gd" id="7_gabkh"]
+[ext_resource type="Script" path="res://Script/portal_bsi_uni.gd" id="8_hr02j"]
+[ext_resource type="PackedScene" uid="uid://dcjevaskcqd17" path="res://Character/luana.tscn" id="8_rkux8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qtwh4"]
+animations = [{
+"frames": [ExtResource("1_yfm0g"), ExtResource("2_5tkkd"), ExtResource("3_1syug"), ExtResource("4_mt1di"), ExtResource("5_kg331"), ExtResource("6_2echx")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c430h"]
+size = Vector2(106, 89.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbr0y"]
+size = Vector2(104.5, 79.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkbo2"]
+size = Vector2(105.5, 120.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgkm6"]
+size = Vector2(137, 118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifcdu"]
+size = Vector2(21, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx2pr"]
+size = Vector2(52, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkqqr"]
+size = Vector2(41, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lanfs"]
+size = Vector2(28, 7)
 
 [node name="unirio_bsi" type="Node2D"]
+
+[node name="Base" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_qtwh4")
+speed_scale = 0.5
+playing = true
+
+[node name="StaticBody2d" type="StaticBody2D" parent="Base"]
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Base/StaticBody2d"]
+position = Vector2(34, 47.125)
+shape = SubResource("RectangleShape2D_c430h")
+
+[node name="CollisionShape2d2" type="CollisionShape2D" parent="Base/StaticBody2d"]
+position = Vector2(-129.25, 58.5)
+shape = SubResource("RectangleShape2D_xbr0y")
+
+[node name="CollisionShape2d3" type="CollisionShape2D" parent="Base/StaticBody2d"]
+position = Vector2(-112.75, -39.75)
+shape = SubResource("RectangleShape2D_dkbo2")
+
+[node name="CollisionShape2d4" type="CollisionShape2D" parent="Base/StaticBody2d"]
+position = Vector2(33.5, -30)
+shape = SubResource("RectangleShape2D_dgkm6")
+
+[node name="CollisionShape2d5" type="CollisionShape2D" parent="Base/StaticBody2d"]
+position = Vector2(-75.5, 95)
+shape = SubResource("RectangleShape2D_ifcdu")
+
+[node name="CollisionShape2d6" type="CollisionShape2D" parent="Base/StaticBody2d"]
+position = Vector2(-23, 94)
+shape = SubResource("RectangleShape2D_ifcdu")
+
+[node name="CollisionShape2d7" type="CollisionShape2D" parent="Base/StaticBody2d"]
+position = Vector2(-43, -72)
+shape = SubResource("RectangleShape2D_bx2pr")
+
+[node name="prof" type="Area2D" parent="."]
+script = ExtResource("7_gabkh")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="prof"]
+position = Vector2(-47.5, -20.5)
+shape = SubResource("RectangleShape2D_bkqqr")
+
+[node name="saida" type="Area2D" parent="."]
+script = ExtResource("8_hr02j")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="saida"]
+position = Vector2(-49, 89)
+shape = SubResource("RectangleShape2D_lanfs")
+
+[node name="Luana" parent="." instance=ExtResource("8_rkux8")]
+position = Vector2(-57, 49)
+
+[node name="Camera2d" type="Camera2D" parent="Luana"]
+current = true
+zoom = Vector2(4, 4)
+
+[connection signal="body_entered" from="prof" to="prof" method="_on_prof_body_entered"]
+[connection signal="body_exited" from="prof" to="prof" method="_on_prof_body_exited"]
+[connection signal="body_entered" from="saida" to="saida" method="_on_saida_body_entered"]

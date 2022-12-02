@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://bflyehoocab8n"]
+[gd_scene load_steps=27 format=3 uid="uid://bflyehoocab8n"]
 
 [ext_resource type="Texture2D" uid="uid://7exb4hfi8mo3" path="res://Assets/tileset.png" id="1_pmre0"]
+[ext_resource type="Script" path="res://Script/luana_house.gd" id="1_t4cxw"]
 [ext_resource type="Script" path="res://Script/escada_sala.gd" id="3_26mna"]
 [ext_resource type="Texture2D" uid="uid://c2cv7b846gnvq" path="res://Assets/Images/escadona.png" id="3_400by"]
 [ext_resource type="Texture2D" uid="uid://b0x1t8v25bgn3" path="res://Assets/Images/tapete_grande.png" id="4_jcdm2"]
@@ -14,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b5cg8ampspltn" path="res://Assets/biblioteca1.png" id="12_677aj"]
 [ext_resource type="Texture2D" uid="uid://bkhasupqb3ecu" path="res://Assets/planta1.png" id="13_4434k"]
 [ext_resource type="PackedScene" uid="uid://dcjevaskcqd17" path="res://Character/luana.tscn" id="14_tnvw3"]
+[ext_resource type="Script" path="res://Script/portal_house_neigh.gd" id="15_fvwkc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jfc1m"]
 texture = ExtResource("1_pmre0")
@@ -11621,7 +11623,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_jfc1m")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4exe0"]
-size = Vector2(14, 17.5)
+size = Vector2(14, 8.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rvdb"]
 size = Vector2(2, 33)
@@ -11641,7 +11643,11 @@ size = Vector2(71.3513, 50.0364)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epq8g"]
 size = Vector2(9, 17)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wopx"]
+size = Vector2(18, 5)
+
 [node name="house" type="Node2D"]
+script = ExtResource("1_t4cxw")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_msfin")
@@ -11671,7 +11677,7 @@ texture = ExtResource("3_400by")
 script = ExtResource("3_26mna")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Escadona/Area2d"]
-position = Vector2(65, -52.75)
+position = Vector2(65, -57.25)
 shape = SubResource("RectangleShape2D_4exe0")
 
 [node name="StaticBody2d" type="StaticBody2D" parent="Escadona"]
@@ -11758,10 +11764,18 @@ position = Vector2(-8.5, 5.5)
 shape = SubResource("RectangleShape2D_epq8g")
 
 [node name="Luana" parent="." instance=ExtResource("14_tnvw3")]
-position = Vector2(143, 13)
+position = Vector2(135, 16)
 
 [node name="Camera2d" type="Camera2D" parent="Luana"]
 current = true
 zoom = Vector2(4, 4)
 
+[node name="Area2d" type="Area2D" parent="."]
+script = ExtResource("15_fvwkc")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
+position = Vector2(24, 100.5)
+shape = SubResource("RectangleShape2D_6wopx")
+
 [connection signal="body_entered" from="Escadona/Area2d" to="Escadona/Area2d" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2d" to="Area2d" method="_on_area_2d_body_entered"]

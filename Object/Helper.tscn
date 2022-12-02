@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://hcee11qwrici"]
 
-[ext_resource type="Texture2D" uid="uid://bkgtvem44beq" path="res://Assets/Images/text-bg.png" id="1_gc35a"]
 [ext_resource type="Script" path="res://Script/helper.gd" id="1_r43vo"]
+[ext_resource type="Texture2D" uid="uid://d2v38qqyw801w" path="res://Assets/goal_bg.png" id="2_66o2i"]
 [ext_resource type="Theme" uid="uid://cxmx36b80lglb" path="res://Assets/Themes/default_theme.tres" id="2_hi72c"]
 
 [node name="HelperBox" type="Node2D"]
 script = ExtResource("1_r43vo")
 metadata/_edit_horizontal_guides_ = [40.0, 88.0]
 
-[node name="box_sprite" type="Sprite2D" parent="."]
-position = Vector2(479, 56)
-scale = Vector2(3.99167, 2.38298)
-texture = ExtResource("1_gc35a")
+[node name="GoalBg" type="Sprite2D" parent="."]
+position = Vector2(480, 52)
+scale = Vector2(4, 3.5)
+texture = ExtResource("2_66o2i")
 
 [node name="text_label" type="RichTextLabel" parent="."]
 offset_left = 200.0

@@ -1,3 +1,77 @@
-[gd_scene format=3 uid="uid://cyyvaysa0swws"]
+[gd_scene load_steps=11 format=3 uid="uid://cyyvaysa0swws"]
+
+[ext_resource type="Texture2D" uid="uid://baykqeyvyuugv" path="res://Assets/cord_cn.png" id="1_hmil6"]
+[ext_resource type="PackedScene" uid="uid://dcjevaskcqd17" path="res://Character/luana.tscn" id="2_6c58i"]
+[ext_resource type="Script" path="res://Script/prof_cn.gd" id="3_oi2xc"]
+[ext_resource type="Script" path="res://Script/portal_saida_cn.gd" id="4_oxm2a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2v8g"]
+size = Vector2(100, 110)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c05p2"]
+size = Vector2(215, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq1am"]
+size = Vector2(88, 123)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmhko"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qc6yw"]
+size = Vector2(49, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwcw1"]
+size = Vector2(31, 6)
 
 [node name="unirio_cn" type="Node2D"]
+
+[node name="CordCn" type="Sprite2D" parent="."]
+position = Vector2(96, 51)
+texture = ExtResource("1_hmil6")
+
+[node name="MapLimits" type="StaticBody2D" parent="CordCn"]
+position = Vector2(-96, -51)
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="CordCn/MapLimits"]
+position = Vector2(40, 45)
+shape = SubResource("RectangleShape2D_b2v8g")
+
+[node name="CollisionShape2d2" type="CollisionShape2D" parent="CordCn/MapLimits"]
+position = Vector2(97.5, 25)
+shape = SubResource("RectangleShape2D_c05p2")
+
+[node name="CollisionShape2d3" type="CollisionShape2D" parent="CordCn/MapLimits"]
+position = Vector2(180, 53.5)
+shape = SubResource("RectangleShape2D_pq1am")
+
+[node name="CollisionShape2d4" type="CollisionShape2D" parent="CordCn/MapLimits"]
+position = Vector2(88, 106)
+shape = SubResource("RectangleShape2D_cmhko")
+
+[node name="CollisionShape2d5" type="CollisionShape2D" parent="CordCn/MapLimits"]
+position = Vector2(139, 106)
+shape = SubResource("RectangleShape2D_cmhko")
+
+[node name="Luana" parent="." instance=ExtResource("2_6c58i")]
+position = Vector2(105, 62)
+
+[node name="Camera2d" type="Camera2D" parent="Luana"]
+current = true
+zoom = Vector2(4, 4)
+
+[node name="prof_cn" type="Area2D" parent="."]
+script = ExtResource("3_oi2xc")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="prof_cn"]
+position = Vector2(112.5, 65)
+shape = SubResource("RectangleShape2D_qc6yw")
+
+[node name="portal_saida" type="Area2D" parent="."]
+script = ExtResource("4_oxm2a")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="portal_saida"]
+position = Vector2(113, 101)
+shape = SubResource("RectangleShape2D_iwcw1")
+
+[connection signal="body_entered" from="prof_cn" to="prof_cn" method="_on_prof_cn_body_entered"]
+[connection signal="body_exited" from="prof_cn" to="prof_cn" method="_on_prof_cn_body_exited"]
+[connection signal="body_entered" from="portal_saida" to="portal_saida" method="_on_portal_saida_body_entered"]
