@@ -1,14 +1,17 @@
-[gd_scene load_steps=28 format=3 uid="uid://p72q8j654ha8"]
+[gd_scene load_steps=38 format=3 uid="uid://p72q8j654ha8"]
 
 [ext_resource type="Script" path="res://Script/unirio_bus.gd" id="1_2k8vo"]
 [ext_resource type="PackedScene" uid="uid://dcjevaskcqd17" path="res://Character/luana.tscn" id="1_gelhn"]
 [ext_resource type="Texture2D" uid="uid://clc75sbc85a30" path="res://Assets/city_tilemap.png" id="2_ojtaq"]
 [ext_resource type="Texture2D" uid="uid://bw2csy5ymjqs" path="res://Assets/building_tilemap.png" id="3_3tdf7"]
+[ext_resource type="PackedScene" path="res://Object/TextBox.tscn" id="3_7lgjn"]
 [ext_resource type="Texture2D" uid="uid://b8u5hip83oox4" path="res://Assets/unirio_predio.png" id="4_hxqbd"]
+[ext_resource type="PackedScene" uid="uid://hcee11qwrici" path="res://Object/Helper.tscn" id="4_p14gs"]
 [ext_resource type="Texture2D" uid="uid://d15ilgux8b1m" path="res://Assets/bus_single.png" id="6_heflm"]
 [ext_resource type="Script" path="res://Script/portal_bsi.gd" id="7_3gfx5"]
 [ext_resource type="Script" path="res://Script/portal_neigh.gd" id="7_vd5r6"]
 [ext_resource type="Script" path="res://Script/portal_cn.gd" id="8_pf7tx"]
+[ext_resource type="Texture2D" uid="uid://bsk5wiljvx8c8" path="res://Assets/arrow.png" id="12_b8lcw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l4avo"]
 texture = ExtResource("2_ojtaq")
@@ -20886,6 +20889,38 @@ size = Vector2(28, 31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3au3l"]
 size = Vector2(27.5, 35)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe5xj"]
+atlas = ExtResource("12_b8lcw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmyi7"]
+atlas = ExtResource("12_b8lcw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5ni6"]
+atlas = ExtResource("12_b8lcw")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_barby"]
+atlas = ExtResource("12_b8lcw")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyv1p"]
+atlas = ExtResource("12_b8lcw")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65b8e"]
+atlas = ExtResource("12_b8lcw")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j5qh4"]
+animations = [{
+"frames": [SubResource("AtlasTexture_oe5xj"), SubResource("AtlasTexture_cmyi7"), SubResource("AtlasTexture_s5ni6"), SubResource("AtlasTexture_barby"), SubResource("AtlasTexture_dyv1p"), SubResource("AtlasTexture_65b8e")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="unirio_bus" type="Node2D"]
 script = ExtResource("1_2k8vo")
 
@@ -20895,6 +20930,16 @@ position = Vector2(51, 208)
 [node name="Camera2d" type="Camera2D" parent="Luana"]
 current = true
 zoom = Vector2(3, 3)
+
+[node name="TextBox" parent="Luana/Camera2d" instance=ExtResource("3_7lgjn")]
+position = Vector2(-114, 44)
+scale = Vector2(0.245, 0.245)
+z_index = 10
+
+[node name="Helper" parent="Luana/Camera2d" instance=ExtResource("4_p14gs")]
+position = Vector2(-82, -110)
+scale = Vector2(0.25, 0.25)
+z_index = 10
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-25, -13)
@@ -21012,6 +21057,20 @@ script = ExtResource("8_pf7tx")
 [node name="CollisionShape2d" type="CollisionShape2D" parent="portal_cn"]
 position = Vector2(269.25, 149)
 shape = SubResource("RectangleShape2D_3au3l")
+
+[node name="arrow_bus" type="AnimatedSprite2D" parent="."]
+position = Vector2(270, 126)
+scale = Vector2(2.4375, 2.4375)
+z_index = 11
+frames = SubResource("SpriteFrames_j5qh4")
+playing = true
+
+[node name="arrow_bsi" type="AnimatedSprite2D" parent="."]
+position = Vector2(145, 127)
+scale = Vector2(2.4375, 2.4375)
+z_index = 11
+frames = SubResource("SpriteFrames_j5qh4")
+playing = true
 
 [connection signal="body_entered" from="BusSingle/portal_neigh" to="BusSingle/portal_neigh" method="_on_portal_neigh_body_entered"]
 [connection signal="body_entered" from="portal_bsi" to="portal_bsi" method="_on_portal_bsi_body_entered"]

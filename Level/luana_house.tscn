@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bflyehoocab8n"]
+[gd_scene load_steps=37 format=3 uid="uid://bflyehoocab8n"]
 
 [ext_resource type="Texture2D" uid="uid://7exb4hfi8mo3" path="res://Assets/tileset.png" id="1_pmre0"]
 [ext_resource type="Script" path="res://Script/luana_house.gd" id="1_t4cxw"]
@@ -16,6 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://bkhasupqb3ecu" path="res://Assets/planta1.png" id="13_4434k"]
 [ext_resource type="PackedScene" uid="uid://dcjevaskcqd17" path="res://Character/luana.tscn" id="14_tnvw3"]
 [ext_resource type="Script" path="res://Script/portal_house_neigh.gd" id="15_fvwkc"]
+[ext_resource type="PackedScene" path="res://Object/TextBox.tscn" id="16_0i8to"]
+[ext_resource type="PackedScene" uid="uid://hcee11qwrici" path="res://Object/Helper.tscn" id="17_f3toe"]
+[ext_resource type="Texture2D" uid="uid://bsk5wiljvx8c8" path="res://Assets/arrow.png" id="19_0ga8f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jfc1m"]
 texture = ExtResource("1_pmre0")
@@ -11646,6 +11649,38 @@ size = Vector2(9, 17)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6wopx"]
 size = Vector2(18, 5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe5xj"]
+atlas = ExtResource("19_0ga8f")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmyi7"]
+atlas = ExtResource("19_0ga8f")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5ni6"]
+atlas = ExtResource("19_0ga8f")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_barby"]
+atlas = ExtResource("19_0ga8f")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyv1p"]
+atlas = ExtResource("19_0ga8f")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65b8e"]
+atlas = ExtResource("19_0ga8f")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6x5ec"]
+animations = [{
+"frames": [SubResource("AtlasTexture_oe5xj"), SubResource("AtlasTexture_cmyi7"), SubResource("AtlasTexture_s5ni6"), SubResource("AtlasTexture_barby"), SubResource("AtlasTexture_dyv1p"), SubResource("AtlasTexture_65b8e")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="house" type="Node2D"]
 script = ExtResource("1_t4cxw")
 
@@ -11770,12 +11805,30 @@ position = Vector2(135, 16)
 current = true
 zoom = Vector2(4, 4)
 
+[node name="TextBox" parent="Luana/Camera2d" instance=ExtResource("16_0i8to")]
+visible = false
+position = Vector2(-117.404, 17.4749)
+scale = Vector2(0.245, 0.245)
+z_index = 10
+
+[node name="Helper" parent="Luana/Camera2d" instance=ExtResource("17_f3toe")]
+position = Vector2(-74.1225, -82.0868)
+scale = Vector2(0.2, 0.2)
+z_index = 10
+
 [node name="Area2d" type="Area2D" parent="."]
 script = ExtResource("15_fvwkc")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
 position = Vector2(24, 100.5)
 shape = SubResource("RectangleShape2D_6wopx")
+
+[node name="arrow_cn" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(23, 85)
+z_index = 11
+frames = SubResource("SpriteFrames_6x5ec")
+playing = true
 
 [connection signal="body_entered" from="Escadona/Area2d" to="Escadona/Area2d" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2d" to="Area2d" method="_on_area_2d_body_entered"]

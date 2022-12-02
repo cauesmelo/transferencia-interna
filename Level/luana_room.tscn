@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bgkt3ba4gyal0"]
+[gd_scene load_steps=53 format=3 uid="uid://bgkt3ba4gyal0"]
 
 [ext_resource type="Script" path="res://Script/luana_room.gd" id="1_hont5"]
 [ext_resource type="Texture2D" uid="uid://7exb4hfi8mo3" path="res://Assets/tileset.png" id="1_i7m7y"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://dm5657c4kmsb1" path="res://Assets/tapete1.png" id="26_ckv1u"]
 [ext_resource type="Texture2D" uid="uid://cxejobd2r3xdy" path="res://Assets/cadeira.png" id="26_hmblx"]
 [ext_resource type="Texture2D" uid="uid://bkhasupqb3ecu" path="res://Assets/planta1.png" id="27_hq65c"]
+[ext_resource type="Texture2D" uid="uid://bsk5wiljvx8c8" path="res://Assets/arrow.png" id="28_n0ip6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jfc1m"]
 texture = ExtResource("1_i7m7y")
@@ -11642,6 +11643,38 @@ size = Vector2(57.5, 189)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0q1o5"]
 size = Vector2(202, 44.5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe5xj"]
+atlas = ExtResource("28_n0ip6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmyi7"]
+atlas = ExtResource("28_n0ip6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5ni6"]
+atlas = ExtResource("28_n0ip6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_barby"]
+atlas = ExtResource("28_n0ip6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyv1p"]
+atlas = ExtResource("28_n0ip6")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65b8e"]
+atlas = ExtResource("28_n0ip6")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_di2sa"]
+animations = [{
+"frames": [SubResource("AtlasTexture_oe5xj"), SubResource("AtlasTexture_cmyi7"), SubResource("AtlasTexture_s5ni6"), SubResource("AtlasTexture_barby"), SubResource("AtlasTexture_dyv1p"), SubResource("AtlasTexture_65b8e")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="room" type="Node2D"]
 position = Vector2(70.1, 11.3816)
 y_sort_enabled = true
@@ -11724,7 +11757,6 @@ position = Vector2(-11.5521, 25.595)
 shape = SubResource("RectangleShape2D_1jklt")
 
 [node name="Form" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(-3.04221, 24.4469)
 texture = ExtResource("17_qj836")
 script = ExtResource("18_fetg0")
@@ -11845,6 +11877,7 @@ position = Vector2(-7.9637, 8.48691)
 shape = SubResource("RectangleShape2D_jve5r")
 
 [node name="MapLimits" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="MapLimits"]
 position = Vector2(-48.1, 67.3684)
@@ -11861,6 +11894,34 @@ shape = SubResource("RectangleShape2D_006h3")
 [node name="CollisionShape2d4" type="CollisionShape2D" parent="MapLimits"]
 position = Vector2(36.4, -5.6316)
 shape = SubResource("RectangleShape2D_0q1o5")
+
+[node name="arrow_computer" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-22.2162, 6.15285)
+z_index = 11
+frames = SubResource("SpriteFrames_di2sa")
+playing = true
+
+[node name="arrow_armario" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(45.8195, -2.6666)
+z_index = 11
+frames = SubResource("SpriteFrames_di2sa")
+playing = true
+
+[node name="arrow_form" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-2.21624, 8.15285)
+z_index = 11
+frames = SubResource("SpriteFrames_di2sa")
+playing = true
+
+[node name="arrow_cn" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(104.844, 5.4102)
+z_index = 11
+frames = SubResource("SpriteFrames_di2sa")
+playing = true
 
 [connection signal="body_entered" from="Step/Area2d" to="Step/Area2d" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Form/Area2d" to="Form" method="_on_area_2d_body_entered"]

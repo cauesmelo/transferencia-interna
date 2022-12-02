@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://c7g0d0auqq7aw"]
+[gd_scene load_steps=30 format=3 uid="uid://c7g0d0auqq7aw"]
 
+[ext_resource type="Script" path="res://Script/unirio_bsi.gd" id="1_wfvao"]
 [ext_resource type="Texture2D" uid="uid://da1okksces65x" path="res://Assets/bsi_cord1.png" id="1_yfm0g"]
 [ext_resource type="Texture2D" uid="uid://d3yfwnv4ti5hr" path="res://Assets/bsi_cord2.png" id="2_5tkkd"]
 [ext_resource type="Texture2D" uid="uid://b8kcdd0onvx0n" path="res://Assets/bsi_cord3.png" id="3_1syug"]
@@ -9,6 +10,9 @@
 [ext_resource type="Script" path="res://Script/prof_bsi.gd" id="7_gabkh"]
 [ext_resource type="Script" path="res://Script/portal_bsi_uni.gd" id="8_hr02j"]
 [ext_resource type="PackedScene" uid="uid://dcjevaskcqd17" path="res://Character/luana.tscn" id="8_rkux8"]
+[ext_resource type="PackedScene" path="res://Object/TextBox.tscn" id="10_rt6l0"]
+[ext_resource type="PackedScene" uid="uid://hcee11qwrici" path="res://Object/Helper.tscn" id="11_3i1ki"]
+[ext_resource type="Texture2D" uid="uid://bsk5wiljvx8c8" path="res://Assets/arrow.png" id="12_nuyj2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qtwh4"]
 animations = [{
@@ -42,7 +46,40 @@ size = Vector2(41, 35)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lanfs"]
 size = Vector2(28, 7)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe5xj"]
+atlas = ExtResource("12_nuyj2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmyi7"]
+atlas = ExtResource("12_nuyj2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5ni6"]
+atlas = ExtResource("12_nuyj2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_barby"]
+atlas = ExtResource("12_nuyj2")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyv1p"]
+atlas = ExtResource("12_nuyj2")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65b8e"]
+atlas = ExtResource("12_nuyj2")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jknph"]
+animations = [{
+"frames": [SubResource("AtlasTexture_oe5xj"), SubResource("AtlasTexture_cmyi7"), SubResource("AtlasTexture_s5ni6"), SubResource("AtlasTexture_barby"), SubResource("AtlasTexture_dyv1p"), SubResource("AtlasTexture_65b8e")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="unirio_bsi" type="Node2D"]
+script = ExtResource("1_wfvao")
 
 [node name="Base" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_qtwh4")
@@ -99,6 +136,23 @@ position = Vector2(-57, 49)
 [node name="Camera2d" type="Camera2D" parent="Luana"]
 current = true
 zoom = Vector2(4, 4)
+
+[node name="TextBox" parent="Luana/Camera2d" instance=ExtResource("10_rt6l0")]
+visible = false
+position = Vector2(-117.404, 17.4749)
+scale = Vector2(0.245, 0.245)
+z_index = 10
+
+[node name="Helper" parent="Luana/Camera2d" instance=ExtResource("11_3i1ki")]
+position = Vector2(-74.1225, -82.0868)
+scale = Vector2(0.2, 0.2)
+z_index = 10
+
+[node name="arrow_bsi" type="AnimatedSprite2D" parent="."]
+position = Vector2(-39, -75)
+z_index = 11
+frames = SubResource("SpriteFrames_jknph")
+playing = true
 
 [connection signal="body_entered" from="prof" to="prof" method="_on_prof_body_entered"]
 [connection signal="body_exited" from="prof" to="prof" method="_on_prof_body_exited"]

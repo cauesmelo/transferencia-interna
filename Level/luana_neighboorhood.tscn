@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://xnpch0gcanfp"]
+[gd_scene load_steps=31 format=3 uid="uid://xnpch0gcanfp"]
 
 [ext_resource type="Texture2D" uid="uid://clc75sbc85a30" path="res://Assets/city_tilemap.png" id="1_a4kkb"]
 [ext_resource type="Script" path="res://Script/luana_neighboorhood.gd" id="1_qhxuw"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dcjevaskcqd17" path="res://Character/luana.tscn" id="2_y5ak4"]
 [ext_resource type="Texture2D" uid="uid://d15ilgux8b1m" path="res://Assets/bus_single.png" id="4_px1yj"]
 [ext_resource type="Texture2D" uid="uid://bsk5wiljvx8c8" path="res://Assets/arrow.png" id="5_eybrg"]
+[ext_resource type="PackedScene" path="res://Object/TextBox.tscn" id="5_f8s1c"]
 [ext_resource type="Script" path="res://Script/portal_neigh_house.gd" id="6_n5sjh"]
 [ext_resource type="Script" path="res://Script/portal_neigh_uni.gd" id="6_pbp16"]
+[ext_resource type="PackedScene" uid="uid://hcee11qwrici" path="res://Object/Helper.tscn" id="6_vshrf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l4avo"]
 texture = ExtResource("1_a4kkb")
@@ -20940,6 +20942,17 @@ position = Vector2(72, 214)
 current = true
 zoom = Vector2(3, 3)
 
+[node name="TextBox" parent="Luana/Camera2d" instance=ExtResource("5_f8s1c")]
+visible = false
+position = Vector2(-114, 44)
+scale = Vector2(0.245, 0.245)
+z_index = 10
+
+[node name="Helper" parent="Luana/Camera2d" instance=ExtResource("6_vshrf")]
+position = Vector2(-82, -110)
+scale = Vector2(0.25, 0.25)
+z_index = 10
+
 [node name="MapLimits" type="StaticBody2D" parent="."]
 visible = false
 
@@ -20988,7 +21001,7 @@ script = ExtResource("6_pbp16")
 position = Vector2(13, 18)
 shape = SubResource("RectangleShape2D_4kme7")
 
-[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
+[node name="arrow_bus" type="AnimatedSprite2D" parent="."]
 position = Vector2(66, 178)
 scale = Vector2(2.4375, 2.4375)
 z_index = 11
