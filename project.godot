@@ -21,11 +21,15 @@ Globals="*res://Script/globals.gd"
 MusicPlayer="*res://Object/MusicPlayer.tscn"
 SceneTransition="*res://Object/SceneTransition.tscn"
 
+[compression]
+
+formats/zlib/compression_level=1
+formats/gzip/compression_level=1
+
 [display]
 
 window/size/viewport_width=960
 window/size/viewport_height=640
-window/size/resizable=false
 window/size/window_width_override=960
 window/size/window_height_override=640
 window/stretch/mode="viewport"
@@ -66,6 +70,5 @@ action={
 
 [rendering]
 
-renderer/rendering_method="mobile"
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 textures/canvas_textures/default_texture_filter=0

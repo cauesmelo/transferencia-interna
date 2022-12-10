@@ -16,10 +16,10 @@ var debug = false
 
 var scene_room = preload("res://Level/luana_room.tscn")
 var scene_house = preload("res://Level/luana_house.tscn")
-var scene_bus = preload("res://Level/luana_neighboorhood.tscn")
-var scene_uni = preload("res://Level/unirio_bus.tscn")
-var scene_bsi = preload("res://Level/unirio_bsi.tscn")
-var scene_cn = preload("res://Level/unirio_cn.tscn")
+#var scene_bus = preload("res://Level/luana_neighboorhood.tscn")
+#var scene_uni = preload("res://Level/unirio_bus.tscn")
+#var scene_bsi = preload("res://Level/unirio_bsi.tscn")
+#var scene_cn = preload("res://Level/unirio_cn.tscn")
 var scene_time_skip = preload("res://Level/time_skip.tscn")
 var scene_time_skip2 = preload("res://Level/time_skip2.tscn")
 
@@ -29,10 +29,11 @@ var labels_game_start = [
 ]
 
 var labels_computer = [
-	"Luana acessa o portal da Unirio...",
-	"E descobre que precisa separar uma cópia da Identidade, comprovante de matrícula e seu histórico escolar.",
+	"Luana acessa o portal da Unirio e descobre que a Pro-reitoria de graduação publica um edital para vagas (...)",
+	"Remanescentes dos cursos da Unirio, permitindo que os estudantes solicitem a transferência interna entre cursos.",
+	"Para isso, precisa separar uma cópia da Identidade, comprovante de matrícula e seu histórico escolar.",
 	"Além disso, é necessário cumprir alguns pré-requisitos para poder solicitar a transferência interna, sendo eles...",
-	"1. Possuir CRA igual ou superior a seis nos períodos realizados no curso de origem.",
+	"1. Possuir CRA (Coeficiente de rendimento acadêmico) igual ou superior a 6 nos períodos realizados no curso de origem.",
 	"2. Ter frequência mínima de 80% nos componentes currículares cursados nos períodos realizados no curso de origem.",
 	"3. Ter condições de concluir o Curso pleiteado no prazo máximo de integralização curricular, (...)", 
 	"(...) incluindo o período de dilatação para a integralização, contando o tempo a partir do ingresso do estudante na Unirio.",
@@ -77,7 +78,7 @@ var labels_computer3 = [
 	"Luana entra no site da Unirio e acessa o resultado do processo de seleção para transferência interna.",
 	"Ela abre a lista de selecionados e...",
 	"Foi aprovada no processo seletivo!!!",
-	"Agora basta ir na coordenação de BSI para concluir o processo."
+	"Agora basta ir na coordenação de BSI com toda a documentação exigida pelo edital para concluir o processo."
 ]
 
 var labels_computer_empty = [
