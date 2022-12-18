@@ -30,7 +30,7 @@ var labels_game_start = [
 
 var labels_computer = [
 	"Luana acessa o portal da Unirio e descobre que a Pro-reitoria de graduação publica um edital para vagas (...)",
-	"Remanescentes dos cursos da Unirio, permitindo que os estudantes solicitem a transferência interna entre cursos.",
+	"(...) remanescentes dos cursos da Unirio, permitindo que os estudantes solicitem a transferência interna entre cursos.",
 	"Para isso, precisa separar uma cópia da Identidade, comprovante de matrícula e seu histórico escolar.",
 	"Além disso, é necessário cumprir alguns pré-requisitos para poder solicitar a transferência interna, sendo eles...",
 	"1. Possuir CRA (Coeficiente de rendimento acadêmico) igual ou superior a 6 nos períodos realizados no curso de origem.",
@@ -41,7 +41,7 @@ var labels_computer = [
 ]
 
 var labels_closet = [
-	"Luana separa uma cópia da identidade, comprovante de matrícula e histórico",
+	"Luana separa uma cópia da identidade, comprovante de matrícula e histórico escolarz ",
 	"Agora é necessário preencher o formulário em cima da mesa."
 ]
 
@@ -188,4 +188,5 @@ func restart_game():
 	goal_text = ""
 	pos = 0
 	labels = []
-	finish_text_cb = func(): pass
+	labels = labels_game_start
+	finish_text_cb = func(): set_goal("Buscar informações no computador")
