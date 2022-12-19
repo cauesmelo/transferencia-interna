@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://hcee11qwrici" path="res://Object/Helper.tscn" id="17_f3toe"]
 [ext_resource type="Texture2D" uid="uid://bsk5wiljvx8c8" path="res://Assets/arrow.png" id="19_0ga8f"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jfc1m"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_raool"]
 texture = ExtResource("1_pmre0")
 5:0/0 = 0
 5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -11621,61 +11621,61 @@ texture = ExtResource("1_pmre0")
 72:48/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 72:48/0/physics_layer_0/angular_velocity = 0.0
 
-[sub_resource type="TileSet" id="TileSet_msfin"]
+[sub_resource type="TileSet" id="TileSet_8t0yd"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_jfc1m")
+sources/0 = SubResource("TileSetAtlasSource_raool")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4exe0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibnyd"]
 size = Vector2(14, 8.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rvdb"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyl6g"]
 size = Vector2(2, 33)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8hpp"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhqu7"]
 size = Vector2(41, 21)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_puxny"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8oq8t"]
 size = Vector2(30, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbleu"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbu0w"]
 size = Vector2(47.5, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkji7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfupe"]
 size = Vector2(71.3513, 50.0364)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_epq8g"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eil6b"]
 size = Vector2(9, 17)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wopx"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_noda7"]
 size = Vector2(18, 5)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oe5xj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k008"]
 atlas = ExtResource("19_0ga8f")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cmyi7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjg0q"]
 atlas = ExtResource("19_0ga8f")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s5ni6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e4f6"]
 atlas = ExtResource("19_0ga8f")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_barby"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rg3q"]
 atlas = ExtResource("19_0ga8f")
 region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dyv1p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo5ou"]
 atlas = ExtResource("19_0ga8f")
 region = Rect2(64, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_65b8e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hnta"]
 atlas = ExtResource("19_0ga8f")
 region = Rect2(80, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_6x5ec"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_in00w"]
 animations = [{
-"frames": [SubResource("AtlasTexture_oe5xj"), SubResource("AtlasTexture_cmyi7"), SubResource("AtlasTexture_s5ni6"), SubResource("AtlasTexture_barby"), SubResource("AtlasTexture_dyv1p"), SubResource("AtlasTexture_65b8e")],
+"frames": [SubResource("AtlasTexture_2k008"), SubResource("AtlasTexture_gjg0q"), SubResource("AtlasTexture_1e4f6"), SubResource("AtlasTexture_4rg3q"), SubResource("AtlasTexture_qo5ou"), SubResource("AtlasTexture_4hnta")],
 "loop": true,
 "name": &"default",
 "speed": 5.0
@@ -11685,7 +11685,7 @@ animations = [{
 script = ExtResource("1_t4cxw")
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_msfin")
+tile_set = SubResource("TileSet_8t0yd")
 format = 2
 layer_0/name = "floor"
 layer_0/tile_data = PackedInt32Array(0, 3014656, 27, 65536, 3014656, 28, 131072, 3014656, 28, 196608, 3014656, 28, 262144, 3014656, 28, 327680, 3014656, 28, 327681, 3080192, 28, 327682, 3080192, 28, 327683, 3080192, 28, 327684, 3080192, 28, 327685, 3080192, 28, 327686, 3080192, 28, 327687, 3080192, 28, 327688, 3080192, 28, 327689, 3080192, 28, 262153, 3080192, 28, 196617, 3080192, 28, 131081, 3080192, 28, 65545, 3080192, 28, 9, 3080192, 27, 8, 3080192, 27, 7, 3080192, 27, 6, 3080192, 27, 5, 3080192, 27, 4, 3080192, 27, 3, 3080192, 27, 2, 3080192, 27, 1, 3080192, 27, 65537, 3080192, 28, 131073, 3080192, 28, 196609, 3080192, 28, 262145, 3080192, 28, 262146, 3080192, 28, 262147, 3080192, 28, 262148, 3080192, 28, 262149, 3080192, 28, 262150, 3080192, 28, 262151, 3080192, 28, 262152, 3080192, 28, 196616, 3080192, 28, 131080, 3080192, 28, 65544, 3080192, 28, 65543, 3080192, 28, 65542, 3080192, 28, 65541, 3080192, 28, 65540, 3080192, 28, 65539, 3080192, 28, 65538, 3080192, 28, 131074, 3080192, 28, 196610, 3080192, 28, 196611, 3080192, 28, 196612, 3080192, 28, 196613, 3080192, 28, 196614, 3080192, 28, 196615, 3080192, 28, 131079, 3080192, 28, 131078, 3080192, 28, 131077, 3080192, 28, 131076, 3080192, 28, 131075, 3080192, 28)
@@ -11713,25 +11713,25 @@ script = ExtResource("3_26mna")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Escadona/Area2d"]
 position = Vector2(65, -57.25)
-shape = SubResource("RectangleShape2D_4exe0")
+shape = SubResource("RectangleShape2D_ibnyd")
 
 [node name="StaticBody2d" type="StaticBody2D" parent="Escadona"]
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Escadona/StaticBody2d"]
 position = Vector2(55, -46.5)
-shape = SubResource("RectangleShape2D_0rvdb")
+shape = SubResource("RectangleShape2D_oyl6g")
 
 [node name="TapeteGrande" type="Sprite2D" parent="."]
 position = Vector2(88, 64)
 texture = ExtResource("4_jcdm2")
 
 [node name="Rack" type="StaticBody2D" parent="."]
-position = Vector2(114, 54)
 z_index = 2
+position = Vector2(114, 54)
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Rack"]
 position = Vector2(-26.5, -47)
-shape = SubResource("RectangleShape2D_u8hpp")
+shape = SubResource("RectangleShape2D_yhqu7")
 
 [node name="Mesa1" type="Sprite2D" parent="Rack"]
 position = Vector2(-35, -50)
@@ -11746,8 +11746,8 @@ position = Vector2(-3, -50)
 texture = ExtResource("7_q51p7")
 
 [node name="Televisao" type="Sprite2D" parent="."]
-position = Vector2(88, -9)
 z_index = 2
+position = Vector2(88, -9)
 texture = ExtResource("8_kx3ue")
 
 [node name="MesaCentro" type="Sprite2D" parent="."]
@@ -11758,14 +11758,14 @@ texture = ExtResource("9_lvw3o")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="MesaCentro/StaticBody2d"]
 position = Vector2(0, -6)
-shape = SubResource("RectangleShape2D_puxny")
+shape = SubResource("RectangleShape2D_8oq8t")
 
 [node name="Sofa" type="StaticBody2D" parent="."]
 position = Vector2(143, 70)
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Sofa"]
 position = Vector2(-55.25, -2)
-shape = SubResource("RectangleShape2D_cbleu")
+shape = SubResource("RectangleShape2D_sbu0w")
 
 [node name="SofaCostas" type="Sprite2D" parent="Sofa"]
 position = Vector2(-55, -3)
@@ -11776,27 +11776,27 @@ position = Vector2(24, 88)
 texture = ExtResource("11_iyuox")
 
 [node name="Biblioteca1" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(33, -6)
 scale = Vector2(0.925, 0.859375)
-z_index = 2
 texture = ExtResource("12_677aj")
 
 [node name="StaticBody2d" type="StaticBody2D" parent="Biblioteca1"]
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Biblioteca1/StaticBody2d"]
 position = Vector2(0, -0.581816)
-shape = SubResource("RectangleShape2D_rkji7")
+shape = SubResource("RectangleShape2D_cfupe")
 
 [node name="Planta1" type="Sprite2D" parent="."]
-position = Vector2(135, 2)
 z_index = 2
+position = Vector2(135, 2)
 texture = ExtResource("13_4434k")
 
 [node name="StaticBody2d" type="StaticBody2D" parent="Planta1"]
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Planta1/StaticBody2d"]
 position = Vector2(-8.5, 5.5)
-shape = SubResource("RectangleShape2D_epq8g")
+shape = SubResource("RectangleShape2D_eil6b")
 
 [node name="Luana" parent="." instance=ExtResource("14_tnvw3")]
 position = Vector2(135, 16)
@@ -11807,27 +11807,27 @@ zoom = Vector2(4, 4)
 
 [node name="TextBox" parent="Luana/Camera2d" instance=ExtResource("16_0i8to")]
 visible = false
+z_index = 10
 position = Vector2(-117.404, 17.4749)
 scale = Vector2(0.245, 0.245)
-z_index = 10
 
 [node name="Helper" parent="Luana/Camera2d" instance=ExtResource("17_f3toe")]
+z_index = 10
 position = Vector2(-74.1225, -82.0868)
 scale = Vector2(0.2, 0.2)
-z_index = 10
 
 [node name="Area2d" type="Area2D" parent="."]
 script = ExtResource("15_fvwkc")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
 position = Vector2(24, 100.5)
-shape = SubResource("RectangleShape2D_6wopx")
+shape = SubResource("RectangleShape2D_noda7")
 
 [node name="arrow_cn" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(23, 85)
 z_index = 11
-frames = SubResource("SpriteFrames_6x5ec")
+position = Vector2(23, 85)
+frames = SubResource("SpriteFrames_in00w")
 playing = true
 
 [connection signal="body_entered" from="Escadona/Area2d" to="Escadona/Area2d" method="_on_area_2d_body_entered"]

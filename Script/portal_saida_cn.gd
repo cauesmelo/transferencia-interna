@@ -5,4 +5,4 @@ extends Area2D
 func _on_portal_saida_body_entered(body):
 	if(body.name == "Luana"):
 		globals.pos = 2
-		SceneTransition.transition_to("res://Level/unirio_bus.tscn")
+		SceneTransition.transition_to_loaded(globals.scene_uni)

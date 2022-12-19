@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var text_node = $Text
 @onready var proceed_node = $Proceed
+@onready var globals = get_node("/root/Globals")
 
 var part = 0
 var acc = 0
@@ -37,4 +38,4 @@ func _input(_event):
 			proceed_node.visible = false
 			is_done = false
 		else:
-			SceneTransition.transition_to("res://Level/luana_room.tscn")
+			SceneTransition.transition_to_loaded(globals.scene_room)

@@ -37,7 +37,6 @@ scale = Vector2(6.05882, 6.05882)
 texture = ExtResource("5_nsg6b")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
 offset_left = 167.0
 offset_top = 470.0
 offset_right = 547.0

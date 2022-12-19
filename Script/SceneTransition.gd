@@ -5,7 +5,15 @@ extends CanvasLayer
 
 func _ready():
 	anim_player.play_backwards('Fade')
-
+	
+func transition_to_loaded(next_scene):
+	anim_player.play('Fade')
+	globals.enable_moving = false
+	await anim_player.animation_finished
+	get_tree().change_scene_to_packed(next_scene)
+	anim_player.play_backwards('Fade')
+	globals.enable_moving = true
+	
 func transition_to(next_scene):
 	anim_player.play('Fade')
 	globals.enable_moving = false

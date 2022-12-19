@@ -14,14 +14,17 @@ var finish_text_cb
 
 var debug = false
 
-var scene_room = preload("res://Level/luana_room.tscn")
-var scene_house = preload("res://Level/luana_house.tscn")
-#var scene_bus = preload("res://Level/luana_neighboorhood.tscn")
-#var scene_uni = preload("res://Level/unirio_bus.tscn")
-#var scene_bsi = preload("res://Level/unirio_bsi.tscn")
-#var scene_cn = preload("res://Level/unirio_cn.tscn")
-var scene_time_skip = preload("res://Level/time_skip.tscn")
-var scene_time_skip2 = preload("res://Level/time_skip2.tscn")
+var scene_room
+var scene_house
+var scene_bus
+var scene_uni
+var scene_bsi
+var scene_cn
+var scene_time_skip
+var scene_time_skip2
+var scene_time_skip3
+var scene_intro
+var main_menu
 
 var labels_game_start = [
 	"O primeiro passo é utilizar o computador para buscar informações no site da Unirio...",
@@ -41,7 +44,7 @@ var labels_computer = [
 ]
 
 var labels_closet = [
-	"Luana separa uma cópia da identidade, comprovante de matrícula e histórico escolarz ",
+	"Luana separa uma cópia da identidade, comprovante de matrícula e histórico escolar.",
 	"Agora é necessário preencher o formulário em cima da mesa."
 ]
 
@@ -133,7 +136,7 @@ func use_computer():
 		game_stage = 5
 		finish_text_cb = func(): 
 			set_goal("Verificar resultado do processo seletivo")
-			SceneTransition.transition_to("res://Level/time_skip2.tscn")
+			SceneTransition.transition_to_loaded(scene_time_skip2)
 			finish_text_cb = func(): pass
 	elif(game_stage == 5):
 		load_texts(labels_computer3)
@@ -157,7 +160,7 @@ func use_prof_bsi():
 		load_texts(labels_bsi)
 		finish_text_cb = func(): 
 			game_stage = 7
-			SceneTransition.transition_to("res://Level/time_skip3.tscn")
+			SceneTransition.transition_to_loaded(scene_time_skip3)
 			finish_text_cb = func(): pass
 	else:
 		load_texts(labels_bsi_empty)
@@ -168,7 +171,7 @@ func use_prof_cn():
 		finish_text_cb = func(): 
 			set_goal("Realizar inscrição no computador")
 			game_stage = 4
-			SceneTransition.transition_to("res://Level/time_skip.tscn")
+			SceneTransition.transition_to_loaded(scene_time_skip)
 			finish_text_cb = func(): pass
 	else:
 		load_texts(labels_cn_empty)

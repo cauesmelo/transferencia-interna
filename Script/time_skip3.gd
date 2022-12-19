@@ -30,5 +30,5 @@ func _process(delta):
 
 func _input(_event):
 	if(Input.get_action_strength("action") == 1 && is_done):
-		SceneTransition.transition_to("res://Menu/main_menu.tscn")
+		SceneTransition.transition_to_loaded(globals.main_menu)
 		globals.restart_game()
